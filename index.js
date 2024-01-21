@@ -30,7 +30,7 @@ document.getElementById("btn-kq1").onclick = function () {
     ).innerHTML = `Bạn đã rớt. Tổng điểm: ${diem}`;
   }
 };
-// Tính tiền điện
+//Bài tập 2: Tính tiền điện
 const TIEN_50KW_DAU = 500;
 const TIEN_50KW_KE = 650;
 const TIEN_100KW_KE = 850;
@@ -67,7 +67,7 @@ document.getElementById("btn-kq2").onclick = function () {
   ).innerHTML = `Họ tên: ${hoTen}; Tiền điện: ${formatTienDien}`;
 };
 
-//Tính thuế thu nhập cá nhân
+//Bài tập 3: Tính thuế thu nhập cá nhân
 const DEN_60 = 0.05;
 const TREN_60_DEN_120 = 0.1;
 const TREN_120_DEN_210 = 0.15;
@@ -111,7 +111,7 @@ document.getElementById("btn-kq3").onclick = function () {
     "ketQua3"
   ).innerHTML = `Họ tên: ${hoTen1}; Tiền thuế thu nhập cá nhân: ${formatTienThue} VND`;
 };
-//🕸️ Tính tiền cáp
+//Bài tập 4: Tính tiền cáp
 const NHA_DAN = "nhaDan";
 const DOANH_NGHIEP = "doanhNghiep";
 // DOM tới giá trị (value) của thẻ input
