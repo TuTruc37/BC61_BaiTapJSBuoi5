@@ -72,7 +72,7 @@ const DEN_60 = 0.05;
 const TREN_60_DEN_120 = 0.1;
 const TREN_120_DEN_210 = 0.15;
 const TREN_210_DEN_384 = 0.2;
-const TREN_284_DEN_624 = 0.25;
+const TREN_384_DEN_624 = 0.25;
 const TREN_624_DEN_960 = 0.3;
 const TREN_960 = 0.35;
 
@@ -81,48 +81,31 @@ document.getElementById("btn-kq3").onclick = function () {
   var tongThuNhapNam = document.getElementById("txt-thuNhapNam").value * 1;
   var soNguoiPhuThuoc =
     document.getElementById("txt-soNguoiPhuThuoc").value * 1;
-  var tienThue = 0;
-  if (tongThuNhapNam <= 60e6) {
-    tienThue = tongThuNhapNam * DEN_60;
-  } else if (tongThuNhapNam > 60e6 && tongThuNhapNam <= 120e6) {
-    tienThue = DEN_60 * 60e6 + (tongThuNhapNam - 60e6) * TREN_60_DEN_120;
-  } else if (tongThuNhapNam > 120e6 && tongThuNhapNam <= 210e6) {
-    tienThue =
-      DEN_60 * 60e6 +
-      TREN_60_DEN_120 * 60e6 +
-      (tongThuNhapNam - 120e6) * TREN_120_DEN_210;
-  } else if (tongThuNhapNam > 210e6 && tongThuNhapNam <= 384e6) {
-    tienThue =
-      DEN_60 * 60e6 +
-      TREN_60_DEN_120 * 60e6 +
-      TREN_120_DEN_210 * 120e6 +
-      (tongThuNhapNam - 210e6) * TREN_210_DEN_384;
-  } else if (tongThuNhapNam > 384e6 && tongThuNhapNam <= 624e6) {
-    tienThue =
-      DEN_60 * 60e6 +
-      TREN_60_DEN_120 * 60e6 +
-      TREN_120_DEN_210 * 120e6 +
-      TREN_210_DEN_384 * 210e6 +
-      (tongThuNhapNam - 384e6) * TREN_284_DEN_624;
-  } else if (tongThuNhapNam > 624e6 && tongThuNhapNam <= 960e6) {
-    tienThue =
-      DEN_60 * 60e6 +
-      TREN_60_DEN_120 * 60e6 +
-      TREN_120_DEN_210 * 120e6 +
-      TREN_210_DEN_384 * 210e6 +
-      TREN_284_DEN_624 * 384e6 +
-      (tongThuNhapNam - 624e6) * TREN_624_DEN_960;
+  var tong = 0;
+  var thuNhapChiuThue = tongThuNhapNam - 4e6 - soNguoiPhuThuoc * 1.6e6;
+  console.log(thuNhapChiuThue);
+  if (thuNhapChiuThue <= 60e6) {
+    tong = thuNhapChiuThue * DEN_60;
+    console.log(tong);
+  } else if (thuNhapChiuThue > 60e6 && thuNhapChiuThue <= 120e6) {
+    tong = thuNhapChiuThue * TREN_60_DEN_120;
+    console.log(tong);
+  } else if (thuNhapChiuThue > 120e6 && thuNhapChiuThue <= 210e6) {
+    tong = thuNhapChiuThue * TREN_120_DEN_210;
+    console.log(tong);
+  } else if (thuNhapChiuThue > 210e6 && thuNhapChiuThue <= 384e6) {
+    tong = thuNhapChiuThue * TREN_210_DEN_384;
+    console.log(tong);
+  } else if (thuNhapChiuThue > 384e6 && thuNhapChiuThue <= 624e6) {
+    tong = thuNhapChiuThue * TREN_384_DEN_624;
+    console.log(tong);
+  } else if (thuNhapChiuThue > 624e6 && thuNhapChiuThue <= 960e6) {
+    tong = thuNhapChiuThue * TREN_624_DEN_960;
+    console.log(tong);
   } else {
-    tienThue =
-      DEN_60 * 60e6 +
-      TREN_60_DEN_120 * 60e6 +
-      TREN_120_DEN_210 * 120e6 +
-      TREN_210_DEN_384 * 210e6 +
-      TREN_284_DEN_624 * 384e6 +
-      TREN_624_DEN_960 * 624e6 +
-      (tongThuNhapNam - 960e6) * TREN_960;
+    tong = thuNhapChiuThue * TREN_960;
+    console.log(tong);
   }
-  var tong = tienThue - 4e6 - soNguoiPhuThuoc * 1.6e6;
   var formatTienThue = new Intl.NumberFormat("vn-VN").format(tong);
   document.getElementById(
     "ketQua3"
